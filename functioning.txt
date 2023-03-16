@@ -1,0 +1,13 @@
+This program uses the GetAsyncKeyState() function to check if the start and stop keys are pressed. If the start key is pressed, the program sets the isRunning flag to true, which starts the autoclicker loop. If the stop key is pressed, the program sets the isRunning flag to false, which stops the autoclicker loop.
+
+The loop simulates a left mouse button click using the SendInput() function and waits for the specified interval using the Sleep() function. The loop continues to run as long as the program is running.
+
+In this code, VK_F6 and VK_F7 are used to represent the F6 and F7 keys respectively. The GetAsyncKeyState() function checks if these keys are pressed, and sets the isRunning flag accordingly. The rest of the code remains the same as in the previous example.
+
+In this updated code, the SetThreadExecutionState() function is called with the ES_SYSTEM_REQUIRED, ES_DISPLAY_REQUIRED, and ES_CONTINUOUS flags to prevent the system from going to sleep or turning off the display while the autoclicker is running. When the autoclicker is stopped by pressing F7, the SetThreadExecutionState() function is called again with only the ES_CONTINUOUS flag to restore the system power settings.
+
+Note that the SetThreadExecutionState() function requires the winbase.h header file, which is already included in the code above.
+
+This batch file first clears the command prompt screen and then compiles the autoclicker.cpp file using the g++ compiler, and creates an executable file called autoclicker.exe. It then displays a message indicating that the compilation is complete, and prompts the user to press F6 to start the autoclicker and F7 to stop it.
+
+Finally, the batch file runs the autoclicker.exe file, which starts the autoclicker. Save this batch file with a .bat extension in the same folder as the autoclicker.cpp file, and run it to compile and run the autoclicker.
